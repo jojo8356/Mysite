@@ -1,0 +1,24 @@
+    {% include 'menus.html' %}
+<body class="inscription">
+	<div class="form">
+		<form action="/connexion/" method="POST">
+			<div class="input">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br>
+				<a href="/forget_email/">Récupérer votre addresse e-mail à partir du mot de passe</a>
+			</div>
+			<div class="input">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password"><br>
+				<a href="/forget_password/">Récupérer votre mot de passe à partir de votre addresse e-mail</a>
+			</div>
+			<button type="submit" class="submit">Submit</button>
+			{% if error %}
+				<div class="error">{{ error }}</div>
+			{% endif %}
+		</form>
+	</div>
+</body>
+<div class="footer-inscription">
+    {% include 'footer.html' %}
+</div>

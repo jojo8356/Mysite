@@ -1,0 +1,314 @@
+/*init*/
+@import url('https://fonts.googleapis.com/css2?family=Arial');
+@import url('https://fonts.googleapis.com/css2?family=Verdana');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica');
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman');
+@import url('https://fonts.googleapis.com/css2?family=Georgia');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+abbr {
+text-decoration: none;
+}
+
+h2 {
+color: black;
+}
+
+p {
+color: black;
+}
+
+a {
+text-decoration: none;
+list-style-type: none;
+
+}
+/*header*/
+.header {
+background-color: #000;
+height: 90px;
+position: relative;
+bottom: 16px;
+}
+
+nav ul li {
+list-style-type: none;
+display: inline-block;
+padding-left: 30px;
+padding-right: 30px;
+
+}
+
+footer a:hover {
+color: black;
+background-color: white;
+text-decoration: none;
+
+}
+ul.menu{
+position: relative;
+right: 25px;
+}
+.menu li{
+float: left;
+margin-top: 25px;
+font-weight: 500;
+font-family: 'Cabin',Arial, sans-serif;
+font-size: 25px;
+}
+.menu li:not(li.sign,li.contact) {
+border-right: 1px solid #fff;
+  font-size: 33px;
+}
+li.contact{
+font-size: 33px;
+border-right: 1px solid #fff;
+}
+a.inscription {
+position: relative;
+bottom: 10px;
+border-bottom: 1px solid #fff;
+padding-bottom: 5px;
+}
+a.connexion{
+position: relative;
+left: 42px;
+}
+.menu li a {
+text-decoration: none;
+color: #fff;
+letter-spacing: 0.30rem;
+
+}
+
+/*body*/
+
+body {
+background-color: #fff;
+background-size: cover;
+margin: 0;
+padding: 0;
+}
+.red{
+color: #AD0300
+}
+
+div.home{
+position: relative;
+left: 50px;
+width: 1350px;
+}
+
+h2.phrase_accroche{
+font-family: Helvetica;
+}
+p.welcome{
+font-family: Arial;
+font-size: 20px;
+position: relative;
+}
+p.formation{
+font-family: Verdana;
+font-size: 25px;
+}
+p.visits{
+font-size: 25px;
+font-family: Helvetica;
+position: relative;
+left: 1250px;
+bottom: 90px;
+font-weight: bold;
+width: 120px;
+
+}
+body.inscription{
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg");
+  background-repeat: no-repeat;
+  background-position: 0px 50px;
+}
+.form{
+width: 300px;
+position: relative;
+top: 100px;
+left: 550px;
+background-color: rgba(255, 255, 255, 0.7);
+height: 300px;
+border-radius: 15px;
+}
+div.footer-inscription{
+position: relative;
+top: 275px;
+}
+.error {
+  color: #D90000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+ position:relative;  
+  top: 15px;
+}
+button[type="submit"] {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  left: 85px;
+  top: 15px;
+}
+.inscription .input {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  width: 200px;
+  position: relative;
+  top: 20px;
+  left: 25px;
+}
+img.redstone{
+width: 85px;
+}
+
+div.content{
+position: relative;
+bottom: 50px;
+}
+h1.send_email{
+font-family: 'Arial';
+font-size: 25px;
+position: relative;
+left: 450px;
+width: 700px;
+}
+div.footer_send_email{
+position: relative;
+top: 122px;
+}
+img.email{
+position: relative;
+width: 100px;
+position: relative;
+left: 667px;
+}
+
+/*footer*/
+
+footer{
+background-color: #000;
+color: #fff;
+padding: 50px 0;
+margin: 0;
+height: 150px;
+position: relative;
+top: 10px;
+}
+
+footer .container {
+max-width: 1170px;
+margin: 0 auto;
+position: relative;
+bottom: 65px;
+}
+
+footer h3 {
+color: #fff;
+}
+
+footer p, footer ul {
+font-size: 14px;
+line-height: 1.5;
+}
+
+footer a {
+color: #fff;
+}
+footer p{
+color: #fff;
+}
+
+footer .social-icon {
+font-size: 24px;
+color: #fff;
+transition: all 0.3s;
+display: inline-block;
+}
+
+footer .social-icon:hover {
+color: #ddd;
+}
+
+footer .copyright {
+position: relative;
+font-size: 20px;
+font-family: 'Open Sans', sans-serif;
+text-align: center;
+top: 5px;
+}
+
+h3.links{
+position: relative;
+}
+
+img.insta,img.discord {
+width: 7%;
+border-radius: 50%;
+background-color: white;
+}
+img.discord{
+position: relative;
+top: 10px;
+}
+ul.contact span{
+width: 5px;
+font-weight: bold;
+}
+
+ul.contact li{
+list-style: none;
+}
+
+ul.links li{
+width: 65px;
+font-weight: bold;
+list-style: none;
+font-size: 18px;
+white-space: nowrap;
+}
+ul.links{
+position: relative;
+right:40px;
+}
+div.col-md-1,div.col-md-2,div.col-md-3{
+display: inline-table;
+}
+
+div.col-md-1 h3,div.col-md-2 h3,div.col-md-3 h3{
+font-size: 25px;
+}
+div.col-md-2,div.col-md-3{
+position: relative;
+left: 50px;
+}
+div.col-md-1{
+position: relative;
+top: 5px;
+}
+div.contact_us p,div.contact a,div.contact li{
+font-size: 17px;
+}
+
+div.row{
+font-family: 'Arial', sans-serif;
+}
+ul.contact a:hover{
+background-color: black;
+}

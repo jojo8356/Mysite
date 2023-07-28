@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel = "stylesheet" type="text/css"  href="{{ url_for('static', filename = 'style.css')}}" >
+<title>redstone</title>
+</head>
+<body>
+{% include 'base.html' %}
+<p>
+Aujourd'hui nous allons apprendre par le commencement, on va faire une ferme agricole
+je vous met la vidéo:
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o-zxV2S8DR0?start=100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<form action="http://127.0.0.1:5000/le%C3%A7on_redstone/1/" method="post">
+<p>Quel est votre nombre d'étage pour votre ferme? </p>
+<input type="number" name="floor">
+<input type="submit">
+</form>
+<p>Vous voulez {{floor}} étages<br>
+Il vous faut avant tout: {{int_blé}} stack et {{float_blé}}  graines pour commencer<br>
+Votre rendement sera: blé: {{int_blé}} stack et {{float_blé}} blés, graine: {{int_graine}} stack et {{float_graine}}</p>
+<p>vous voulez faire la ferme agricole 2.0?il vous faut <a href="https://www.youtube.com/watch?v=hq4ICLAwcwc" target="_blank">une ferme a villageois</a><br>
+<p >je vous met la vidéo:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hq4ICLAwcwc" title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>je vous met la vidéo:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-U1crAHHllg" title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a></p>
+<button class="next"><a href="/leçon_redstone/2/">Page suivante</a></button>
+{% include 'footer.html' %}
+</body>
+</html>

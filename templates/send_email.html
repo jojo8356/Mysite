@@ -1,0 +1,6 @@
+{% include 'menus.html' %}
+<h1 class="send_email"> {{username}},<br> On vous a envoyé un email de vérification, <br>si l'email n'apparait pas dans l'accueil de votre boite, <br> alors cela veut dire qu'il est dans les spams</h1>
+<img src="{{url_for('static', filename='img/email.png')}}" class="email">
+<div class="footer_send_email">
+{% include "footer.html" %}
+</div>

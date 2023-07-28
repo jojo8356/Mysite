@@ -1,0 +1,73 @@
+Model:
+        add( table, colonne, item): ajoute un élément dans la base de données
+
+        add_multiple_element( table, colonne_et_element): add multiple element in db
+
+        create_colonne( table, colonne): créer une colonne
+
+        display_table( table_name): affiche une table sous un table(eau) LOL
+
+        exec_sql( sql): éxécute le sql
+
+        get_colonnes_name_from_table( table): get colonnes names from table
+
+        get_conn(): récupère la connexion (conn)
+
+        get_cursor(): get le cursor
+
+        get_db_in_dictio(): get db in dictionnary
+
+        get_elements_from_colonne( table, colonne): get elements from colonnes
+
+        get_file(): get le nom du file
+
+        get_password(): récupère le mdp
+
+        get_table_names(): get names of tables in db
+
+        init_var(): initialise les variables
+
+        print_db(): print all db
+
+        re_push_dictio_elements_in_db( dictio): re push the dictionnary (db) in db
+
+        sup_colonne( table, colonne): del une colonne dans une table
+
+        sup_item( table, colonne, item): del item
+
+        sup_table( table): del table
+
+        update_element( table, colonne, old_element, nw_element): MAJ d'un element
+
+        verif_all( table , colonne, item): verifie tout: table,colonne et item si ils sont dans la db
+
+        verif_colonne( table, colonne): vérifie si la colonne exist
+
+        verif_item( table, colonne, item): vérifie si l'item existe
+
+        verif_table( table): vérifie si la table exist
+
+Counter:
+        count(table,colonne): sert à compter des éléménts genre visiteurs, nombre de click, etc...
+
+        get_db(): récupérer db tool for use later
+
+        readtable,colonne): sert à lire les comptes
+
+Cryptograph:
+        decrypt_element(encrypted_element): decrypt un élément
+
+        decrypt_file(file): decrypte le fichier
+
+        encrypt_element(element): encrypt un élement
+
+        encrypt_file(file): encrypt le fichier
+
+        generate_key(): génère la clé
+
+        init_key(): initialise la clé
+
+        read_encrypt(file): lis le fichier encrypter
+
+        read_key(): lis la clé
+

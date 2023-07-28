@@ -1,0 +1,37 @@
+        <link rel = "stylesheet" type="text/css"  href="{{ url_for('static', filename = 'style.css')}}" >
+        <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Arial' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <h3 class="contact">Contact</h3>
+        <div class="contact_us">        
+        <p>
+          <a href="mailto:johan.polsinelli@gmail.com">johan.polsinelli@gmail.com</a><br>
+          07 73 24 22 89
+        </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <h3 class="links">Links</h3>
+        <ul class="links">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/about">À propos</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3" class="icons">
+        <h3 class="follow">Follow us</h3>
+        	<ul class="contact">
+        		<li><a href="https://www.instagram.com/dev_jojokes/"  class="instagram"><img src="{{ url_for('static', filename='img/instagram.png') }}" class="insta"></a></li>
+				<li><a href="https://discord.com/channels/1068883069265784872/1068883069265784876" class="discord"><img src="{{ url_for('static', filename='img/discorde.png') }}", class="discord"></a></li>		
+			</ul>
+		</div>
+    </div>
+    <p class="copyright">Copyright &copy; Jojokes - {{g.year}} - All Right Reserved</p>
+  </div>
+</footer>

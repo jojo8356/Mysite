@@ -1,0 +1,21 @@
+{% include 'menus.html' %}
+<body>
+        <div class="home">
+        <h2 class="phrase_accroche">Vous êtes fan de la <span class="red">poudre rouge</span> alors vous êtes la ou le bienvenu(e) et prenez cette <span class="red">redstone heure</span> pour apprendre et pratiquer.</h2>
+        <img src="{{ url_for('static', filename='img/hqdefault.png') }}" class="redstone">
+<p class="visits">visits: {{nb_visit}}</p>  	      
+<div class="content">      
+        <p class="welcome">
+            Hey, <br>
+            Bienvenue sur le site de Jojokes.<br>
+            Vous êtes venu(e) là pour apprendre l'algorithmie de la <span class="red">redstone</span>.<br>
+            Hé oui la <span class="red">redstone</span> c'est comme un langage de programmation il faut savoir les bases pour faire plus tard des automatisations beaucoup plus compliqué.<br>
+            Allez sur tutoriel si vous voulez commencé a faire de la <span class="red">redstone</span> dans minecraft.<br>
+            Allez sur autres si vous voulez savoir ls astuces et les anecdotes des gameplays du créateur.<br>
+            Allez sur inscription puis forum si vous voulez discuter avec d'autres personnes.<br><br>
+        </p>
+        <p class="formation" ><a href="{{ url_for('introduction') }}" class="red"><b>Cliquez ici pour commencer votre apprentissage</b></a></p>
+	</div>
+	</div>
+</body>
+{% include "footer.html" %}
