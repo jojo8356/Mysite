@@ -3,6 +3,7 @@ import datetime
 from model import *
 from counter import *
 from cryptograph import *
+import threading
 
 port = 5000
 file_db = "db/database.db"
@@ -51,16 +52,13 @@ def accueil():
 def autres():
     return render_template("autres.html")
 
-
 @app.route("/leçon_redstone/<number>/", methods=["POST", "GET"])
 def leçon_redstone(number):
     return render_template("leçon_redstone/LR%s.html/" % str(number))
 
-
 @app.route("/introduction/")
 def introduction():
     return render_template("introduction.html")
-
 
 @app.route("/forum/")
 def forum():

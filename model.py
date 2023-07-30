@@ -5,13 +5,11 @@ import os
 from get_doc import *
 from tools import *
 
-
-@FunctionWrapperDecorator
 class Model:
     def __init__(self, file):
         self.file, self.password = file, password
         self.verif_file()
-        self.conn = sqlite.connect(self.file, check_same_thread=False)  # type: ignore
+        self.conn = sqlite.connect(self.file, check_same_thread=False) # type: ignore
         self.conn.execute(f"PRAGMA key='{self.password}'")
         self.cursor = self.conn.cursor()
 
@@ -21,13 +19,13 @@ class Model:
             os.remove(self.file)
         except:
             pass
-        self.conn = sqlite.connect(self.file)  # type: ignore
+        self.conn = sqlite.connect(self.file, check_same_thread=False) # type: ignore
         self.conn.execute(f"PRAGMA key='{self.password}'")
         self.cursor = self.conn.cursor()
 
     def verif_file(self):
         if not os.path.isfile(self.file):
-            self.conn = sqlite.connect(self.file, check_same_thread=False)  # type: ignore
+            self.conn = sqlite.connect(self.file, check_same_thread=False) # type: ignore
 
     def exec_sql(self, sql):
         """éxécute le sql"""
@@ -67,12 +65,12 @@ class Model:
 
     def verif_item(self, table, colonne, item):
         """vérifie si l'item existe"""
-        items = self.get_elements_from_colonne(table, colonne)
+        items = self.get_elements_from_colonne(table,colonne)
         return item in items
 
     def create_colonne(self, table, colonne):
         """create a column in a table"""
-        if self.verif_colonne(table, colonne):
+        if self.verif_colonne(table,colonne):
             return
         if self.verif_table(table):
             self.exec_sql(f"ALTER TABLE {table} ADD COLUMN {colonne}")
@@ -83,11 +81,9 @@ class Model:
 
     def add(self, table, colonne, item):
         """ajoute un élément dans la base de données"""
-        self.create_colonne(table, colonne)
+        self.create_colonne(table,colonne)
         self.exec_sql(f"INSERT INTO {table} ({colonne}) VALUES ('{item}');")
-        print(
-            f"L'item {item} a été ajouté dans la colonne {colonne} qui est dans la table {table}"
-        )
+        print(f"L'item {item} a été ajouté dans la colonne {colonne} qui est dans la table {table}")
 
     def display_table(self, table_name):
         """affiche une table sous un table(eau) LOL"""
@@ -113,11 +109,11 @@ class Model:
 
     def get_elements_from_colonne(self, table, colonne):
         """get elements from colonnes"""
-        self.create_colonne(table, colonne)
+        self.create_colonne(table,colonne)
         elements = self.exec_sql(f"SELECT {colonne} FROM {table}")
         elements = [x[0] for x in elements]
         return elements
-
+    
     def get_colonnes_name_from_table(self, table):
         """get colonnes names from table"""
         colonnes = self.exec_sql(f"PRAGMA table_info({table});")
@@ -126,10 +122,8 @@ class Model:
 
     def update_element(self, table, colonne, old_element, nw_element):
         """MAJ d'un element"""
-        self.create_colonne(table, colonne)
         if not self.verif_item(table, colonne, old_element):
             raise ValueError("Le premier élément (celui de départ) n'existe pas")
-        print(old_element, nw_element)
         dictio = self.get_db_in_dictio()
         index = dictio[table][colonne].index(old_element)
         dictio[table][colonne][index] = nw_element
@@ -144,7 +138,7 @@ class Model:
     def del_colonne(self, table, colonne):
         """del une colonne dans une table"""
         dictio = self.get_db_in_dictio()
-        del dictio[table][colonne]
+        del dictio[table][colonne]       
         self.re_push_dictio_elements_in_db(dictio)
 
     def del_item(self, table, colonne, item):
@@ -155,18 +149,18 @@ class Model:
             dictio[table][colonne][index] = ""
             self.re_push_dictio_elements_in_db(dictio)
         else:
-            print("l'élément " + item + " à déja été supprimer ou n'est pas remplis")
+            print("l'élément "+item+" à déja été supprimer ou n'est pas remplis")
 
     def get_db_in_dictio(self):
         """get db in dictionnary"""
         dictio = {}
         tables = self.get_tables_names()
         for x in tables:
-            dictio[x] = self.get_colonnes_name_from_table(x)
+                dictio[x] = self.get_colonnes_name_from_table(x)
         for table_name, column_names in dictio.items():
-            for x in range(len(column_names)):
-                elements = self.get_elements_from_colonne(table_name, column_names[x])
-                dictio[table_name][x] = {column_names[x]: elements}
+                for x in range(len(column_names)):
+                    elements = self.get_elements_from_colonne(table_name, column_names[x])
+                    dictio[table_name][x] = {column_names[x]: elements}
         dictio = format_dictio(dictio)
         return dictio
 
@@ -179,40 +173,37 @@ class Model:
             self.create_colonne(table, x)
         for x in elements:
             liste = format_data_for_sql(x)
-            self.exec_sql(f"INSERT INTO {table} {colonnes_sql} VALUES {liste}")
+            self.exec_sql(f"INSERT INTO {table} {colonnes_sql} VALUES {liste}")        
 
     def re_push_dictio_elements_in_db(self, dictio):
         """re push the dictionnary (db) in db"""
-        dictio = self.get_db_in_dictio()
-        if len(list(dictio.keys())) == 0:
+        if not self.check_data_existance_in_db():
             self.init_var()
         else:
+            self.init_var()
             for table, data in dictio.items():
                 keys = list(data.keys())
                 values = list(data.values())
 
                 result = [keys] + list(zip(*values))
-                result = eval(
-                    str(result).replace("(", "[").replace(",)", "]").replace(")", "]")
-                )
+                result = eval(str(result).replace("(","[").replace(",)","]").replace(")","]"))
                 for x in range(len(result)):
                     my_list = result[x]
                     for i in range(len(my_list)):
                         if my_list[i] is None:
                             my_list[i] = ""
-                self.init_var()
-                self.add_multiple_element(table, result)
+                self.add_multiple_element(table,result)
 
     def check_data_existance_in_db(self):
         dictio = self.get_db_in_dictio()
         return len(list(dictio.keys())) != 0
 
-    def add_item_begin_colonne(self, table, colonne, item):
-        self.create_colonne(table, colonne)
-        try:
-            items = self.get_elements_from_colonne(table, colonne)
+    def add_item_begin_colonne(self,table,colonne,item):
+        self.create_colonne(table,colonne)
+        try: 
+            items = self.get_elements_from_colonne(table,colonne)
             if len(items) == 0:
-                return self.add(table, colonne, item)
-            self.update_element(table, colonne, items[0], item)
+                return self.add(table,colonne,item)
+            self.update_element(table,colonne,items[0],item)
         except:
-            return self.add(table, colonne, item)
+            return self.add(table,colonne,item)
